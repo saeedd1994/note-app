@@ -1,8 +1,8 @@
-function NoteList({notes}) {
+function NoteList({notes, OnDeleteNote}) {
     return (
         <div className="note-list">
             {
-                notes.map(note => <NoteItem key={note.id} note={note}/>)
+                notes.map(note => <NoteItem key={note.id} onDeleteNote={OnDeleteNote} o note={note}/>)
             }
         </div>
     )
@@ -10,7 +10,7 @@ function NoteList({notes}) {
 
 export default NoteList;
 
-function NoteItem({note}) {
+function NoteItem({note, onDeleteNote}) {
     const dateOptions = {
         year: 'numeric',
         month: 'long',
@@ -23,7 +23,7 @@ function NoteItem({note}) {
                 <p className="desc">{note.desc}</p>
             </div>
             <div className="actions">
-                <button>❌</button>
+                <button onClick={() => onDeleteNote(note.id)}>❌</button>
                 <input type="checkbox"/>
             </div>
         </div>
