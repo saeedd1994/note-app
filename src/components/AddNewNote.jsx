@@ -1,12 +1,14 @@
 import {useState} from "react";
 
-function AddNewNote() {
+function AddNewNote({onHandleSetNote}) {
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!title || !desc) return;
         const newNote = {
             title,
             desc,
@@ -15,6 +17,7 @@ function AddNewNote() {
             createdAt: new Date().toISOString(),
         }
         console.log(newNote)
+        onHandleSetNote(newNote)
         setTitle('');
         setDesc('');
     }
