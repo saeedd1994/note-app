@@ -2,6 +2,7 @@ import './App.css'
 import AddNewNote from "./components/AddNewNote.jsx";
 import NoteList from "./components/NoteList.jsx";
 import {useState} from "react";
+import NoteStatus from "./components/NoteStatus.jsx";
 
 function App() {
     const [note, setNote] = useState([])
@@ -24,6 +25,7 @@ function App() {
             <div className="note-app">
                 <AddNewNote onHandleSetNote={handleSetNote}/>
                 <div className="note-container">
+                    <NoteStatus notes = {note}/>
                     <NoteList notes={note} OnDeleteNote={handleDeleteNote} onComplete = {handleCompleteNote}/>
                 </div>
             </div>

@@ -16,7 +16,6 @@ function AddNewNote({onHandleSetNote}) {
             completed: false,
             createdAt: new Date().toISOString(),
         }
-        console.log(newNote)
         onHandleSetNote(newNote)
         setTitle('');
         setDesc('');
